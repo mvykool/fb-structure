@@ -8,6 +8,7 @@ export default function Home() {
       </Head>
 
        <h1>let's build facebook</h1>
+       <p>hello world</p>
     </div>
   )
 }

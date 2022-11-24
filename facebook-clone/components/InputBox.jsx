@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useRef} from 'react'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { EmojiHappyIcon } from '@heroicons/react/outline'
 import { CameraIcon, VideoCameraIcon } from '@heroicons/react/solid'
+import { database } from '../firebase'
+import { serverTimestamp } from "firebase/firestore";
+import { setDoc, doc } from 'firebase/firestore'
 
 const InputBox = () => {
   
     const { data: session } = useSession();
+    const inputRef = useRef(null);
+
+  
 
     const sendPost = e =>{
-        e.preventDefault()
+        e.preventDefault();
+
+        if(!inputRef.current.value) return;
+
+        const data = doc(database, "posts", session.user.name);
+        setDoc(data, {
+            message: inputRef.current.value,
+            name: session.user.name,
+            email: session.user.email,
+            image: session.user.image,
+            timestamp: serverTimestamp()
+        })
+        inputRef.current.value = "";
     }
 
   return (
@@ -26,6 +44,7 @@ const InputBox = () => {
                 <input
                 className='rounded-full h-12 bg-gray-100 flex-grow px-5 mb-5 focus:outline-none'
                 type="text"
+                ref={inputRef}
                 placeholder={`What's on your mind, ${session.user.name} ?`}
                 />
                 <button hidden type="submit" onClick={sendPost}>Submit</button>

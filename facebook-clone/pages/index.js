@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from '../components/Header'
+import SideBar from '../components/SideBar'
 import { getSession } from 'next-auth/react'
 import Login from '../components/Login';
 
@@ -16,6 +17,7 @@ export default function Home({ session }) {
 
        <main>
         {/** side bar */}
+        <SideBar/>
         {/**feed */}
         {/** widgets */}
        </main>

@@ -11,3 +11,9 @@
         @apply flex items-center space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer;
     }
 }
+
+.circle-img{
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}

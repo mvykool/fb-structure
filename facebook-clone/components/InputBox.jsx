@@ -1,92 +1,81 @@
-import React, { useRef, useState} from 'react'
-import { useSession } from 'next-auth/react'
-import Image from 'next/image'
-import { EmojiHappyIcon } from '@heroicons/react/outline'
-import { CameraIcon, VideoCameraIcon } from '@heroicons/react/solid'
-import { database, storage } from '../firebase'
-import { serverTimestamp } from "firebase/firestore";
-import { setDoc, doc } from 'firebase/firestore'
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
+import { EmojiHappyIcon } from "@heroicons/react/outline";
+import { CameraIcon, VideoCameraIcon } from "@heroicons/react/solid";
+import { useSession } from "next-auth/react";
+import { useRef, useState } from "react";
+import { db, storage } from "../firebase";
+import firebase from "firebase";
+import Image from "next/image";
 
-const InputBox = () => {
-  
-    const { data: session } = useSession();
-    const inputRef = useRef(null);
-    const filepickerRef = useRef(null);
-    const [imageToPost, setImageToPost] = useState(null);
-    const [prog, setProg] = useState(0);
+function InputBox() {
+  const {data: session} = useSession();
+  const inputRef = useRef(null);
+  const [imageToPost, setImageToPost] = useState(null);
+  const filepickerRef = useRef(null);
 
-  
-
-   const addImageToPost = (e) =>{
-     const reader = new FileReader();
-     if(e.target.files[0]) {
-        reader.readAsDataURL(e.target.files[0]);
-     }
-
-     reader.onload = (readerEvent) => {
-        setImageToPost(readerEvent.target.result)
-     }
-
-    
-
-   };
-
-   console.log(imageToPost)
-
-   const removeImage = () => {
-    setImageToPost(null);
-   }
-
-
-
-   const sendPost = e =>{
+  const sendPost = (e) => {
     e.preventDefault();
-         
-    if(!inputRef.current.value) return;
-  
-    const data = doc(database, "posts", session.user.name);
-    setDoc(data, {
+
+    if (!inputRef.current.value) return;
+
+    db.collection("posts")
+      .add({
         message: inputRef.current.value,
         name: session.user.name,
         email: session.user.email,
         image: session.user.image,
-        timestamp: serverTimestamp()
-    })
-   
-  .then((doc)=>{
-   
-    if(imageToPost){
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      .then((doc) => {
+        if (imageToPost) {
+          const uploadTask = storage
+            .ref(`posts/${doc.id}`)
+            .putString(imageToPost, "data_url");
 
-        const storageRef = ref(storage, `posts/${imageToPost.name}`)
-        const uploadTask = uploadBytesResumable(storageRef, imageToPost, "data_url");
- 
-        removeImage();
- 
-        uploadTask.on(
-            "state_change",
-            (snapshot) => {
-                const prog = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                setProg(prog);
+          removeImage();
+
+          uploadTask.on(
+            "state_changed",
+            null,
+            (error) => {
+              // ERROR function
+              console.log(error);
             },
-            (error) => console.error(error),
-            ()=> {
-              getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-                setDoc(data,{
-                    postImage: url
-                }, {merge: true})
-              }
-            )
+            () => {
+              // COMPLETE function
+              storage
+                .ref("posts")
+                .child(doc.id)
+                .getDownloadURL()
+                .then((url) => {
+                  db.collection("posts").doc(doc.id).set(
+                    {
+                      postImage: url,
+                    },
+                    { merge: true }
+                  );
+                });
             }
-        );
+          );
+        }
+      });
 
-    }
-  })
-    
-   
-   
     inputRef.current.value = "";
-}
+  };
+
+  const addImageToPost = (e) => {
+    const reader = new FileReader();
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+
+    reader.onload = (readerEvent) => {
+      setImageToPost(readerEvent.target.result);
+    };
+  };
+
+  const removeImage = () => {
+    setImageToPost(null);
+  };
 
 
   return (

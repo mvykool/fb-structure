@@ -10,7 +10,7 @@ import { db } from '../firebase';
 export default function Home({ session, posts }) {
   if(!session) return <Login/>;
   return (
-    <div className='h-screen bg-gray-100 overflow-hidden'>
+    <div className='h-screen bg-custom-bg overflow-hidden'>
       <Head>
         <title>Facebook</title>
       </Head>

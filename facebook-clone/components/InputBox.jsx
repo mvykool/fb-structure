@@ -73,6 +73,8 @@ function InputBox() {
     };
   };
 
+  
+
   const removeImage = () => {
     setImageToPost(null);
   };
@@ -90,7 +92,7 @@ function InputBox() {
             />
             <form className='flex flex-1'>
                 <input
-                className='rounded-full h-12 bg-gray-100 flex-grow px-5 mb-5 focus:outline-none'
+                className='rounded-full text-sm lg:text-base h-12 bg-gray-100 flex-grow px-5 mb-5 focus:outline-none'
                 type="text"
                 ref={inputRef}
                 placeholder={`What's on your mind, ${session.user.name} ?`}

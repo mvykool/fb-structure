@@ -18,7 +18,7 @@ const SideBar = () => {
     const { data: session, loading } = useSession();
 
   return (
-    <div className='p-2 mt-5 max-w-[600px] xl:min-w-[300px]'>
+    <div className='p-5 pt-7 max-w-[600px] xl:min-w-[370px] lg:bg-white'>
         <SideBarIcon src={session.user.image} title={session.user.name}/>
         
         <SideBarIcon Icon={UsersIcon} title="Friends" />

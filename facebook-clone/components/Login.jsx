@@ -4,14 +4,18 @@ import { signIn } from 'next-auth/react'
 
 const Login = () => {
   return (
-    <div className='grid place-items-center'>
+    <div className='login-bg h-screen'>
+   <div className='pt-56'>
+   <div className='grid place-items-center py-20 px-10 mx-[40%] login-card'>
         <Image
         src="https://links.papareact.com/t4i"
-        height={400}
-        width={400}
+        height={200}
+        width={200}
         objectFit='contain'
         />
-        <h1 onClick={signIn} className='mt-8 cursor-pointer p-5 bg-blue-500 rounded-full text-white text-center'>Login with Facebook</h1>
+        <h1 onClick={signIn} className='mt-20 cursor-pointer p-5 bg-blue-800 rounded-xl text-white text-center'>Login with Facebook</h1>
+    </div>
+   </div>
     </div>
   )
 }

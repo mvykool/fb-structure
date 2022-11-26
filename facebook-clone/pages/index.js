@@ -22,7 +22,7 @@ export default function Home({ session, posts }) {
         {/** side bar */}
         <SideBar/>
         {/**feed */}
-        <Feed posts={posts}/>
+        <Feed posts={posts} session={session}/>
         {/** widgets */}
         <Widgets/>
        </main>

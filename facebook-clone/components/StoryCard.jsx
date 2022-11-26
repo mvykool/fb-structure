@@ -5,7 +5,7 @@ const StoryCard = ({ name, src, profile }) => {
   return (
     <div className='relative h-14 w-14 md:w-20 md:h-20 lg:h-56 lg:w-32 cursor-pointer overflow-x p-3 transition duration-200 transform ease-in hover:scale-105 hover:animate-pulse'>
         <Image
-        className='absolute opacity-0 lg:opacity-100 rounded-full z-50 top-10'
+        className='absolute opacity-0 lg:opacity-100 rounded-full z-50 top-4 circle-img md:border-2 p-0.5 md:border-separate md:border-spacing-1 ' 
         src={profile}
         width={40}
         height={40}
@@ -13,10 +13,11 @@ const StoryCard = ({ name, src, profile }) => {
         objecFit="cover"
         />
         <Image
-        className='object-cover brightness-75 rounded-full md:rounded-3xl'
+        className='object-cover brightness-75 rounded-full md:rounded-md'
         src={src}
         layout="fill"
         />
+        <p className='hiden md:absolute bottom-2 text-white flex text-sm'>{name}</p>
     </div>
   )
 }

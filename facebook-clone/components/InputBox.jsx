@@ -5,6 +5,9 @@ import { useRef, useState } from "react";
 import { db, storage } from "../firebase";
 import firebase from "firebase";
 import Image from "next/image";
+import { GiEarthAmerica } from 'react-icons/gi'
+import {BsCaretDownFill} from 'react-icons/bs'
+import { DotsHorizontalIcon } from '@heroicons/react/solid'
 
 function InputBox() {
   const {data: session} = useSession();
@@ -81,18 +84,29 @@ function InputBox() {
 
 
   return (
-    <div className='bg-white p-4 rounded-2xl shadow-md text-gray-500 font-medium mt-6'>
-        <div className='flex space-x-4 items-center'>
-            <Image
-            className='rounded-full mb-5'
+    <div className='bg-white p-4 rounded-md text-gray-500 font-medium mt-6'>
+      <div className="flex">
+      <Image
+            className='rounded-full m-5'
             src={session.user.image}
-            width={40}
-            height={40}
+            width={50}
+            height={50}
             layout="fixed"
             />
+            <div className="cursor-pointer">
+            <p className="mt-5 text-black font-bold mb-1">{session.user.name}</p>
+           <div className="flex items-center space-x-1 text-sm">
+           <GiEarthAmerica/>
+           <p>Public</p>
+           <BsCaretDownFill className="h-3"/>
+           </div>
+            </div>
+      </div>
+        <div className='flex space-x-4 items-center'>
+           
             <form className='flex flex-1'>
                 <input
-                className='rounded-full text-sm lg:text-base h-12 bg-gray-100 flex-grow px-5 mb-5 focus:outline-none'
+                className='rounded-full placeholder-gray-300 text-sm lg:text-2xl h-20 flex-grow lg:mx-24 mt-2 focus:outline-none'
                 type="text"
                 ref={inputRef}
                 placeholder={`What's on your mind, ${session.user.name} ?`}
@@ -108,23 +122,27 @@ function InputBox() {
             )}
         </div>
 
-        <div className='flex justify-evenly p-3 border-t'>
+        <div className='flex flex-wrap p-2 justify-evenly border-t'>
             <div className='inputIcon'>
-             <VideoCameraIcon className='h-7 text-red-500'/>
+             <VideoCameraIcon className='h-4 md:h-7  text-red-500'/>
              <p className='text-xs sm:text-sm xl:text-base'>Live Video</p>
             </div>
 
             <div 
             onClick={()=> filepickerRef.current.click()}
             className='inputIcon'>
-             <CameraIcon className='h-7 text-green-400'/>
+             <CameraIcon className='h-4 md:h-7  text-green-400'/>
              <p className='text-xs sm:text-sm'>Photo/Video</p>
              <input onChange={addImageToPost} ref={filepickerRef} type="file" hidden />
             </div>
 
             <div className='inputIcon'>
-              <EmojiHappyIcon className='h-7 text-yellow-300'/>
+              <EmojiHappyIcon className='h-4 md:h-7  text-yellow-300'/>
               <p className='text-xs sm:text-sm xl:text-base'>Feeling/Activity</p>
+            </div>
+
+            <div className="inputIcon">
+              <DotsHorizontalIcon className="h-4 md:h-7 w-20"/>
             </div>
         </div>
     </div>

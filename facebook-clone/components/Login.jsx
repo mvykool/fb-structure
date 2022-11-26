@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react'
 const Login = () => {
   return (
     <div className='login-bg h-screen'>
-   <div className='pt-56'>
+   <div className='pt-50'>
    <div className='grid place-items-center py-20 px-10 mx-[40%] login-card'>
         <Image
         src="https://links.papareact.com/t4i"

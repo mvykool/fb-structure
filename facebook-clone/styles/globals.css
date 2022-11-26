@@ -10,7 +10,7 @@
     }
 
     .icon-messanger {
-        @apply hidden xl:inline-flex p-2 h-10 w-10 text-blue-600 cursor-pointer transition duration-200 transform hover:scale-125;
+        @apply hidden xl:inline-flex p-2 h-10 w-10 text-blue-700 cursor-pointer transition duration-200 transform hover:scale-125;
     }
 
     .inputIcon {

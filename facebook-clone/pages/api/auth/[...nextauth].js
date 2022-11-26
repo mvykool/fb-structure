@@ -9,7 +9,7 @@ export default NextAuth({
             clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
           })
     ],
-    secret: process.env.SECRET,
+    secret: "LlKq6ZtYbr+hTC073mAmAh9/h2HwMfsFo4hrfCx6gts=",
 });
 
 

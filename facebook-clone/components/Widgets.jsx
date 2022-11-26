@@ -30,7 +30,7 @@ const Widgets = () => {
 
       {/**event pic */}
 
-      <div className='transition duration-200 transform hover:scale-105'>
+      <div className='transition duration-200 transform hover:scale-105 cursor-pointer'>
     
         <div className='absolute z-50 mt-1'>
           <div className='flex space-x-12 items-center'>
@@ -38,6 +38,9 @@ const Widgets = () => {
             <div className='p-2 bg-white rounded-lg h-10 w-8 cursor-pointer'>
             <BsCheckLg className='h-7 text-blue-600'/>
             </div>
+          </div>
+          <div className='mt-24 over overflow-hidden bg-black py-1 pl-5 pr-5 opacity-70 cursor-pointer'>
+            <p className='text-white text-md '>Encore Event Center, San Diego, CA, US ...</p>
           </div>
         </div>
         
@@ -52,7 +55,7 @@ const Widgets = () => {
 
 
         <div className='flex justify-between items-center p-2 text-gray-500 mb-5'>
-            <h2 className='text-xl text-black font-bold'>Contacts</h2>
+            <h2 className='text-xl text-black font-bold'>Messenger</h2>
             <div className='flex space-x-2'>
                <VideoCameraIcon className='h-6'/>
                <SearchIcon className='h-6'/>

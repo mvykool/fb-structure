@@ -2,21 +2,20 @@ import Image from 'next/image'
 import React from 'react'
 import {
     BellIcon,
-    ChatIcon,
+    SupportIcon,
     ChevronDownIcon,
     HomeIcon,
     ViewGridIcon,
 } from "@heroicons/react/solid";
 
 import {
-    FlagIcon,
     PlayIcon,
     SearchIcon,
     UserGroupIcon,
     ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import HeaderIcon from './HeaderIcon';
-
+import { BsMessenger } from 'react-icons/bs'
 
 
 
@@ -61,18 +60,21 @@ const Header = () => {
          <div className='flex justify-center flex-grow'>
             <div className='flex space-x-6 md:space-x-2'>
                 <HeaderIcon active Icon={HomeIcon} />
-                <HeaderIcon Icon={FlagIcon}/>
+                <HeaderIcon Icon={ViewGridIcon}/>
                 <HeaderIcon Icon={PlayIcon}/>
                 <HeaderIcon Icon={ShoppingCartIcon} />
                 <HeaderIcon Icon={UserGroupIcon} />
             </div>
          </div>
         {/**right */}
-        <div className='flex items-center sm:space-x-2 justify-end'>
+        <div className='flex items-center sm:space-x-3 justify-end'>
           
-            <ViewGridIcon className='icon'/>
-            <ChatIcon className='icon'/>
+           <SupportIcon className='icon'/>
+            <BsMessenger className='icon-messanger'/>
+           <div>
+           <div className='hidden xl:block h-2.5 w-2.5 absolute bg-red-500 rounded-full ml-6 mt-1'/>
             <BellIcon className='icon'/>
+           </div>
 
             {/**profile pic */}
        <div className='flex items-center border-l p-2'>

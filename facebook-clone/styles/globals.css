@@ -4,11 +4,19 @@
 
 @layer components {
     .icon {
-        @apply hidden xl:inline-flex p-2 h-10 bg-gray-200 rounded-full text-gray-600 cursor-pointer hover:bg-gray-300;
+        @apply hidden xl:inline-flex p-2 h-10 rounded-full text-gray-600 cursor-pointer hover:bg-gray-300;
+    }
+
+    .icon-messanger {
+        @apply hidden xl:inline-flex p-2 h-10 w-10 text-blue-600 cursor-pointer transition duration-200 transform hover:scale-125;
     }
 
     .inputIcon {
         @apply flex items-center mx-2 md:mx-10 space-x-1 hover:bg-gray-100 flex-grow justify-center p-2 rounded-xl cursor-pointer;
+    }
+
+    .view-img {
+        @apply h-36 w-32 rounded-md m-2 cursor-pointer transition duration-200 transform ease-in hover:scale-105 ;
     }
 }
 

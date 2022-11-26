@@ -5,29 +5,29 @@ import { PlusIcon } from '@heroicons/react/outline';
 
 const stories = [
     {
-        name: "Sonny Sangha",
-        src: "https://links.papareact.com/zof",
-        profile: "https://links.papareact.com/l4v",
+        name: "Kevin Smith",
+        src: "/person-one.jpg",
+        profile: "/profile-one.jpg",
     },
     {
-        name: "elon musk",
-        src: "https://links.papareact.com/4zn",
-        profile:"https://links.papareact.com/kxk",
+        name: "Maria Hernandez",
+        src: "/person-two.jpg",
+        profile:"/profile-two.jpg",
     },
     {
-        name: "jeff bezoz",
-        src: "https://links.papareact.com/k2j",
-        profile: "https://links.papareact.com/f0p",
+        name: "Diego Dos Santos",
+        src: "/person-three.jpg",
+        profile: "/profile-three.jpg",
     },
     {
-        name: "mark zuckerberg",
-        src: "https://links.papareact.com/xql",
-        profile: "https://links.papareact.com/snf",
+        name: "Ana Zanetti",
+        src: "/person-four.jpg",
+        profile: "/profile-four.jpg",
     },
     {
-        name: "bill gates",
-        src: "https://links.papareact.com/4u4",
-        profile: "https://links.papareact.com/zvy",
+        name: "James Owens",
+        src: "/person-five.jpg",
+        profile: "/profile-five.jpg",
     },
 ];
 

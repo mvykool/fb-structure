@@ -8,14 +8,42 @@ import { BsCheckLg } from 'react-icons/bs'
 /**contact list */
 
 const contacts = [
-    { src: "https://links.papareact.com/f0p", name: "Jeff Bezoz" },
-    { src: "https://links.papareact.com/kxk", name: "Elon Musk" },
-    { src: "https://links.papareact.com/zvy", name: "Bill Gates" },
-    { src: "https://links.papareact.com/snf", name: "Mark Zuckerberg" },
-    { src: "https://links.papareact.com/d0c", name: "Harry Potter" },
-    { src: "https://links.papareact.com/6gg", name: "The Queen" },
-    { src: "https://links.papareact.com/r57", name: "James Bond" },
-  ];
+  {
+      name: "Kevin Smith",
+      src: "/person-one.jpg",
+      profile: "/profile-one.jpg",
+  },
+  {
+      name: "Maria Hernandez",
+      src: "/person-two.jpg",
+      profile:"/profile-two.jpg",
+  },
+  {
+      name: "Diego Dos Santos",
+      src: "/person-three.jpg",
+      profile: "/profile-three.jpg",
+  },
+  {
+      name: "Ana Zanetti",
+      src: "/person-four.jpg",
+      profile: "/profile-four.jpg",
+  },
+  {
+      name: "James Owens",
+      src: "/person-five.jpg",
+      profile: "/profile-five.jpg",
+  },
+  {
+    name: "Abiola Ibrahim",
+    src: "/profile-six.jpg",
+    profile: "/profile-six.jpg",
+  },
+  {
+   name: "Aaliyah Ali",
+   src: "/profile-seven.jpg",
+   profile: "/profile-seven.jpg",
+  },
+];
 
 
 const Widgets = () => {
@@ -57,9 +85,9 @@ const Widgets = () => {
         <div className='flex justify-between items-center p-2 text-gray-500 mb-5'>
             <h2 className='text-xl text-black font-bold'>Messenger</h2>
             <div className='flex space-x-2'>
-               <VideoCameraIcon className='h-6'/>
-               <SearchIcon className='h-6'/>
-               <DotsHorizontalIcon className='h-6'/>
+               <VideoCameraIcon className='h-6 cursor-pointer'/>
+               <SearchIcon className='h-6 cursor-pointer'/>
+               <DotsHorizontalIcon className='h-6 cursor-pointer'/>
             </div>
         </div>
        <div className='mx-4 mt-2'>

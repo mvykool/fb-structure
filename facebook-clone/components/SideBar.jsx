@@ -23,7 +23,7 @@ const SideBar = () => {
         
         <SideBarIcon Icon={UsersIcon} title="Friends" />
         <SideBarIcon Icon={ShoppingBagIcon} title="Marketplace" />
-        <SideBarIcon Icon={DesktopComputerIcon} title="watch" />
+        <SideBarIcon Icon={DesktopComputerIcon} title="Stream" />
         <SideBarIcon Icon={ClockIcon} title="Memories" />
         <SideBarIcon Icon={ChevronDownIcon} title="See More" />
     </div>

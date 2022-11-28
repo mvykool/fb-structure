@@ -9,6 +9,14 @@ export default NextAuth({
             clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
           })
     ],
+    callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+          return true
+        },
+        async redirect({ url, baseUrl }) {
+          return baseUrl
+        }
+    }
 });
 
 
